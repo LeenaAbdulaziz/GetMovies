@@ -18,16 +18,22 @@ class PeopleViewController: UITableViewController {
 
       
         
-        getMovieApi()
+        getallpeopl()
             }
             
-            func getMovieApi() {
+    
+    
+    
+    
+            func  getallpeopl() {
                 ApiManager.getApiResponse(urlPath: peopleApi) { data, error in
                     if error != nil {
                         print(error?.localizedDescription)
                     } else {
                         if let data = data {
                             self.people = self.parseLogic(data: data)
+                            
+                            
                             DispatchQueue.main.async {
                                 // main thread
                                 self.tableView.reloadData()

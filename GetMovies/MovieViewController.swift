@@ -18,16 +18,18 @@ class MovieViewController: UITableViewController {
 
       
         
-        getMovieApi()
+        getallmovies()
             }
             
-            func getMovieApi() {
+            func getallmovies() {
                 ApiManager.getApiResponse(urlPath: movieApi) { data, error in
                     if error != nil {
                         print(error?.localizedDescription)
                     } else {
                         if let data = data {
                             self.movie = self.parseLogic(data: data)
+                            
+                            
                             DispatchQueue.main.async {
                                 // main thread
                                 self.tableView.reloadData()
